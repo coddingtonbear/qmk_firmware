@@ -57,12 +57,12 @@ CUSTOM_MATRIX = yes
 # Build Options
 #   comment out to disable the options.
 #
-#BOOTMAGIC_ENABLE ?= no	# Virtual DIP switch configuration(+1000)
-#MOUSEKEY_ENABLE ?= no	# Mouse keys(+4700)
+BOOTMAGIC_ENABLE ?= no	# Virtual DIP switch configuration(+1000)
+MOUSEKEY_ENABLE ?= yes	# Mouse keys(+4700)
 EXTRAKEY_ENABLE ?= yes	# Audio control and System control(+450)
-#COMMAND_ENABLE ?= no    # Commands for debug and configuration
+COMMAND_ENABLE ?= no    # Commands for debug and configuration
 CONSOLE_ENABLE ?= yes	# Console for debug(+400)
 USE_I2C ?= yes # need i2c for communication with i/o expander
 RGBLIGHT_ENABLE ?= yes
-#SLEEP_LED_ENABLE = yes  # Breathing sleep LED during USB suspend
-#NKRO_ENABLE = yes	# USB Nkey Rollover - not yet supported in LUFA
+SLEEP_LED_ENABLE = no  # Breathing sleep LED during USB suspend
+NKRO_ENABLE = no	# USB Nkey Rollover - not yet supported in LUFA

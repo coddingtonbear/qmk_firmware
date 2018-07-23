@@ -43,6 +43,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* Set 0 if debouncing isn't needed */
 #define DEBOUNCING_DELAY    5
 
+#define BACKLIGHT_PIN B5
+#define BACKLIGHT_LEVELS 3
+
+#define GRAVE_ESC_ALT_OVERRIDE
+
 #define RGB_DI_PIN B7
 #define RGBLED_NUM 18
 #define RGBLIGHT_ANIMATIONS
