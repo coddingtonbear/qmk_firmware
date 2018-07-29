@@ -65,14 +65,17 @@ void matrix_scan_user(void) {
 uint32_t layer_state_set_user(uint32_t state) {
   switch(biton32(state)) {
     case _MOUSE:
+      // blue
       DDRD   |= (1<<7);
       PORTD &= ~(1<<7);
       break;
     case _FUNC:
+      // green
       DDRC  |=  (1<<6);
       PORTC &= ~(1<<6);
       break;
     case _EMOJI:
+      // red
       DDRF  |=  (1<<1);
       PORTF &= ~(1<<1);
       break;
