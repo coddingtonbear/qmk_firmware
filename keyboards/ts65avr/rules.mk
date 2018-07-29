@@ -19,6 +19,8 @@ MCU = atmega32u4
 #     software delays.
 F_CPU = 16000000
 
+PS2_MOUSE_ENABLE = yes
+PS2_USE_BUSYWAIT = yes
 
 #
 # LUFA specific
