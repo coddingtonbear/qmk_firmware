@@ -69,3 +69,4 @@ USE_I2C ?= yes # need i2c for communication with i/o expander
 RGBLIGHT_ENABLE ?= no
 SLEEP_LED_ENABLE = no  # Breathing sleep LED during USB suspend
 NKRO_ENABLE = yes	# USB Nkey Rollover - not yet supported in LUFA
+UNICODE_ENABLE = yes
