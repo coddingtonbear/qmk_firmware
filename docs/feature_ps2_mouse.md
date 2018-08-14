@@ -227,7 +227,7 @@ Fine control over the scrolling is supported with the following defines:
 #define PS2_MOUSE_SCROLL_DIVISOR_V 2
 ```
 
-#### Invert Mouse and Scroll Axes
+#### Invert Mouse and Scroll Axes or Swap Axes
 
 To invert the X and Y axes you can put:
 
@@ -246,6 +246,15 @@ To reverse the scroll axes you can put:
 ```
 
 into config.h.
+
+If your trackpoing module is rotated, thus causing its axes to be swapped,
+you can swap the X and Y axes by adding:
+
+```
+#define PS2_SWAP_AXES
+```
+
+into config.h
 
 #### Debug Settings
 
