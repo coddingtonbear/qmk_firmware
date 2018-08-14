@@ -65,10 +65,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     keyboard_report->mods == (MOD_BIT(KC_LSHIFT) | MOD_BIT(KC_RSHIFT)) \
 )
 
-#define PS2_CLOCK_PORT  PORTE
-#define PS2_CLOCK_PIN   PINE
-#define PS2_CLOCK_DDR   DDRE
-#define PS2_CLOCK_BIT   6
+#define PS2_CLOCK_PORT  PORTD
+#define PS2_CLOCK_PIN   PIND
+#define PS2_CLOCK_DDR   DDRD
+#define PS2_CLOCK_BIT   5
 #define PS2_DATA_PORT   PORTD
 #define PS2_DATA_PIN    PIND
 #define PS2_DATA_DDR    DDRD
