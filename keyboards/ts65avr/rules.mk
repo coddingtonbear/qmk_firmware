@@ -25,8 +25,6 @@ F_CPU = 16000000
 # Target architecture (see library "Board Types" documentation).
 ARCH = AVR8
 
-POINTING_DEVICE_ENABLED = yes
-
 # Input clock frequency.
 #     This will define a symbol, F_USB, in all source code files equal to the
 #     input clock frequency (before any prescaling is performed) in Hz. This value may
@@ -69,3 +67,4 @@ RGBLIGHT_ENABLE ?= no
 SLEEP_LED_ENABLE = no  # Breathing sleep LED during USB suspend
 NKRO_ENABLE = yes	# USB Nkey Rollover - not yet supported in LUFA
 UNICODE_ENABLE = yes
+POINTING_DEVICE_ENABLE = yes

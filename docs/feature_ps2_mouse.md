@@ -238,6 +238,7 @@ To invert the X and Y axes you can put:
 
 into config.h.
 
+
 To reverse the scroll axes you can put:
 
 ```

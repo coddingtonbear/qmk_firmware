@@ -55,6 +55,22 @@ static uint32_t matrix_scan_count;
 static bool debouncing = false;
 static uint16_t debouncing_time;
 
+__attribute__ ((weak))
+void matrix_init_user(void) {}
+
+__attribute__ ((weak))
+void matrix_scan_user(void) {}
+
+__attribute__ ((weak))
+void matrix_init_kb(void) {
+  matrix_init_user();
+}
+
+__attribute__ ((weak))
+void matrix_scan_kb(void) {
+  matrix_scan_user();
+}
+
 inline
 uint8_t matrix_rows(void)
 {
@@ -144,6 +160,8 @@ void matrix_init(void)
 
     debug_matrix = true;
     debug_enable = true;
+
+    matrix_init_quantum();
 }
 
 uint8_t matrix_scan(void)
@@ -153,9 +171,9 @@ uint8_t matrix_scan(void)
     uint32_t timer_now = timer_read32();
 
     if (TIMER_DIFF_32(timer_now, matrix_timer) > 1000) {
-        print("matrix scan frequency: ");
-        pdec(matrix_scan_count);
-        print("\n");
+        //print("matrix scan frequency: ");
+        //pdec(matrix_scan_count);
+        //print("\n");
 
         matrix_timer = timer_now;
         matrix_scan_count = 0;
@@ -169,7 +187,7 @@ uint8_t matrix_scan(void)
         if (read_rows(i)) {
             debouncing = true;
             debouncing_time = timer_read();
-        }
+       }
 
         unselect_cols();
     }
@@ -180,6 +198,8 @@ uint8_t matrix_scan(void)
 
         debouncing = false;
     }
+
+    matrix_scan_quantum();
 
     return 1;
 }
@@ -238,7 +258,7 @@ static bool read_rows(uint8_t col)
 
         rows = (rows & 0b00001111) | ((rows & 0b01000000) >> 2);
 
-        if (matrix_scan_count == 0)
+        if (matrix_scan_count == 0 && false)
             xprintf("read_rows %d (left): %08b\n", col, rows);
     } else {
         if (i2c_master_start(I2C_ADDR_WRITE)) goto err;
@@ -254,7 +274,7 @@ static bool read_rows(uint8_t col)
 
         rows = (rows & 0b00111110) >> 1;
 
-        if (matrix_scan_count == 0)
+        if (matrix_scan_count == 0 && false)
             xprintf("read_rows %d (right): %08b\n", col, rows);
     }
 

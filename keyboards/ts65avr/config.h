@@ -47,6 +47,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define BACKLIGHT_LEVELS 3
 
 #define GRAVE_ESC_ALT_OVERRIDE
+#define PS2_SWAP_AXES
+#define PS2_MOUSE_INVERT_X
 
 #define RGB_DI_PIN B7
 #define RGBLED_NUM 18
@@ -64,27 +66,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define IS_COMMAND() ( \
     keyboard_report->mods == (MOD_BIT(KC_LSHIFT) | MOD_BIT(KC_RSHIFT)) \
 )
-
-#define PS2_CLOCK_PORT  PORTD
-#define PS2_CLOCK_PIN   PIND
-#define PS2_CLOCK_DDR   DDRD
-#define PS2_CLOCK_BIT   5
-#define PS2_DATA_PORT   PORTD
-#define PS2_DATA_PIN    PIND
-#define PS2_DATA_DDR    DDRD
-#define PS2_DATA_BIT    4
-
-#define PS2_INT_INIT()  do {    \
-    EICRA |= ((1<<ISC61) |      \
-              (0<<ISC60));      \
-} while (0)
-#define PS2_INT_ON()  do {      \
-    EIMSK |= (1<<INT6);         \
-} while (0)
-#define PS2_INT_OFF() do {      \
-    EIMSK &= ~(1<<INT6);        \
-} while (0)
-#define PS2_INT_VECT   INT6_vect
 
 #define USE_I2C
 
