@@ -19,14 +19,13 @@ MCU = atmega32u4
 #     software delays.
 F_CPU = 16000000
 
-PS2_MOUSE_ENABLE = yes
-PS2_USE_BUSYWAIT = yes
-
 #
 # LUFA specific
 #
 # Target architecture (see library "Board Types" documentation).
 ARCH = AVR8
+
+POINTING_DEVICE_ENABLED = yes
 
 # Input clock frequency.
 #     This will define a symbol, F_USB, in all source code files equal to the
