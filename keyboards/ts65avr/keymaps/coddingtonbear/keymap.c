@@ -19,7 +19,7 @@
 #define MO_EMOJI MO(_EMOJI)
 #define LT_MSE LT(_MOUSE, KC_SCLN)
 
-#define MOUSE_MOVE_UNIT 20
+#define MOUSE_MOVE_UNIT 10
 #define MOUSE_MOVE_FINE_UNIT 2
 #define MOUSE_NULL_ZONE 0.
 #define Y_MOUSE_PIN PF0
