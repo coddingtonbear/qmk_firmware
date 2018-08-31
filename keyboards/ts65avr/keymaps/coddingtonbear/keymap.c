@@ -25,8 +25,8 @@
 #define MOUSE_MOVE_UNIT 10
 #define MOUSE_MOVE_FINE_UNIT 2
 #define MOUSE_NULL_ZONE 0.
-#define Y_MOUSE_PIN PF0
-#define X_MOUSE_PIN PF1
+#define X_MOUSE_PIN PF0
+#define Y_MOUSE_PIN PF1
 #define Y_MOUSE_INVERT
 //#define X_MOUSE_INVERT
 
