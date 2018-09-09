@@ -8,19 +8,23 @@
 
 #define _QWERTY 0
 #define _FUNC 1
-#define _MOUSE 2
-#define _EMOJI 3
-#define _GAME 4
-#define _BLANK 5
+#define _FUNC2 2
+#define _MOUSE 3
+#define _EMOJI 4
+#define _GAME 5
+#define _BLANK 6
 
 // Key exists electrically, but is unpopulated in selected layout
 #define KC_NONE KC_NO
 
 #define MO_FUNC MO(_FUNC)
+#define MO_FNC2 MO(_FUNC2)
 #define MO_MSE MO(_MOUSE)
 #define MO_EMOJI MO(_EMOJI)
 #define LT_MSE LT(_MOUSE, KC_SCLN)
 #define TG_GAME TG(_GAME)
+#define KC_CHOM RCTL(KC_HOME)
+#define KC_CEND RCTL(KC_END)
 
 //#define ENABLE_PSP1000_MOUSE
 #define MOUSE_MOVE_UNIT 10
@@ -108,7 +112,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB,  KC_Q,    KC_W,    KC_E,     KC_R,    KC_T,            KC_Y,   KC_U,     KC_I,    KC_O,    KC_P,    KC_LBRC, KC_RBRC, KC_BSLS, KC_PGUP, \
         KC_LCTL, KC_A,    KC_S,    KC_D,     KC_F,    KC_G,            KC_H,   KC_J,     KC_K,    KC_L,    LT_MSE,  KC_QUOT, KC_NONE, KC_ENT,  KC_PGDN, \
         KC_LSFT, KC_NONE, KC_Z,    KC_X,     KC_C,    KC_V,   KC_B,    KC_N,   KC_M,     KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,          KC_UP,   MO_EMOJI, \
-        MO_FUNC, KC_LCTL, KC_LGUI, KC_LALT,  KC_SPC,                   KC_SPC,           KC_RGUI, KC_RALT, KC_RCTL, KC_LEFT,          KC_DOWN, KC_RIGHT),
+        MO_FUNC, KC_LCTL, KC_LGUI, KC_LALT,  KC_SPC,                   KC_SPC,           MO_FNC2, KC_RALT, KC_RCTL, KC_LEFT,          KC_DOWN, KC_RIGHT),
 
     [_FUNC] = KEYMAP( \
         KC_GRV,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  _______, KC_SLEP, KC_MUTE, \
@@ -116,6 +120,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         RESET,   _______, _______, _______, _______, TG_GAME,          KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______, KC_GRV,  _______, _______, KC_VOLD, \
         _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_PGDN, _______, UC(L'‽'),_______,          _______, _______, \
         _______, _______, _______, _______, _______,                   _______,          _______, _______, _______, KC_MPRV,          KC_MPLY, KC_MNXT),
+
+    [_FUNC2] = KEYMAP( \
+        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
+        _______, _______, _______, _______, _______, _______,          _______, _______, _______, _______, _______, _______, _______, _______, _______, \
+        _______, _______, _______, _______, _______, _______,          _______, _______, _______, _______, _______, _______, _______, _______, _______,\
+        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          KC_CHOM, _______, \
+        _______, _______, _______, _______, _______,                   _______,          _______, _______, _______, KC_HOME,          KC_CEND, KC_END ),
 
     [_MOUSE] = KEYMAP( \
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
