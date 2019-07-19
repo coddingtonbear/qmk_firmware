@@ -48,7 +48,9 @@ int mouseMoveUnit = MOUSE_MOVE_UNIT;
 enum custom_keycodes {
   PLUS_1 = SAFE_RANGE,
   MINUS_1,
-  HEART
+  HEART,
+  SHRUG,
+  SAME
 };
 
 #include <avr/io.h>
@@ -138,8 +140,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_EMOJI] = KEYMAP( \
         RESET,   UC(L'①'), UC(L'②'), UC(L'③'), UC(L'④'), UC(L'⑤'), UC(L'⑥'), UC(L'⑦'), UC(L'⑧'), UC(L'⑨'), UC(L'⑩'), _______, _______, _______, _______, _______, \
-        DEBUG,   _______, _______, _______, _______, _______,          _______, _______, _______, _______, _______, _______, _______, _______, _______, \
-        _______, _______, _______, _______, _______, _______,          HEART,   _______, _______, _______, _______, _______, _______, _______, _______,\
+        DEBUG,   _______, _______, _______, _______, _______,          _______, _______, _______, _______, _______, _______, _______, SAME, _______, \
+        _______, _______, SHRUG, _______, _______, _______,          HEART,   _______, _______, _______, _______, _______, _______, _______, _______,\
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          PLUS_1,  _______, \
         _______, _______, _______, _______, _______,                   _______,          _______, _______, _______, _______,          MINUS_1, _______),
 
@@ -170,6 +172,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         return false;
       case HEART:
         SEND_STRING(":heart:");
+        return false;
+      case SHRUG:
+        SEND_STRING(":shrug:");
+        return false;
+      case SAME:
+        SEND_STRING(":same:");
         return false;
     }
   } else if (!record->event.pressed) {
