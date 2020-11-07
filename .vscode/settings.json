@@ -14,5 +14,6 @@
         "*.hpp": "cpp",
         "xstddef": "c"
     },
-    "editor.wordWrap": "off"
+    "editor.wordWrap": "off",
+    "workbench.colorCustomizations": {}
 }
