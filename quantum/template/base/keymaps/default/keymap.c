@@ -1,4 +1,4 @@
-/* Copyright 2018 REPLACE_WITH_YOUR_NAME
+/* Copyright %YEAR% %YOUR_NAME%
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -15,45 +15,48 @@
  */
 #include QMK_KEYBOARD_H
 
+// Defines names for use in layer keycodes and the keymap
+enum layer_names {
+    _BASE,
+    _FN
+};
+
+// Defines the keycodes used by our macros in process_record_user
+enum custom_keycodes {
+    QMKBEST = SAFE_RANGE,
+    QMKURL
+};
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-[0] = LAYOUT( /* Base */
-  KC_A,  KC_1,  KC_H, \
-    KC_TAB,  KC_SPC   \
-),
+    /* Base */
+    [_BASE] = LAYOUT(
+        KC_A,    KC_1,    MO(_FN),
+            KC_TAB,   KC_SPC
+    ),
+    [_FN] = LAYOUT(
+        QMKBEST, QMKURL,  _______,
+            RESET,    XXXXXXX
+    )
 };
-
-const uint16_t PROGMEM fn_actions[] = {
-
-};
-
-const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
-{
-  // MACRODOWN only works in this function
-      switch(id) {
-        case 0:
-          if (record->event.pressed) {
-            register_code(KC_RSFT);
-          } else {
-            unregister_code(KC_RSFT);
-          }
-        break;
-      }
-    return MACRO_NONE;
-};
-
-
-void matrix_init_user(void) {
-
-}
-
-void matrix_scan_user(void) {
-
-}
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  return true;
-}
-
-void led_set_user(uint8_t usb_led) {
-
+    switch (keycode) {
+        case QMKBEST:
+            if (record->event.pressed) {
+                // when keycode QMKBEST is pressed
+                SEND_STRING("QMK is the best thing ever!");
+            } else {
+                // when keycode QMKBEST is released
+            }
+            break;
+        case QMKURL:
+            if (record->event.pressed) {
+                // when keycode QMKURL is pressed
+                SEND_STRING("https://qmk.fm/\n");
+            } else {
+                // when keycode QMKURL is released
+            }
+            break;
+    }
+    return true;
 }

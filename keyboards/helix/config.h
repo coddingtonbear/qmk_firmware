@@ -16,8 +16,7 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef CONFIG_H
-#define CONFIG_H
+#pragma once
 
 #include "config_common.h"
 
@@ -26,8 +25,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //   -include keyboards/helix/rev?/config.h
 //   -include keyboards/helix/rev?/keymaps/MAPNAME/config.h
 //   XXXX.c
-
-#include <serial_config.h>
 
 // GCC include search path in qmk_firmare/keyboards/helix/
 //    #include "..." search starts here:
@@ -38,5 +35,3 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //     .
 //     ./tmk_core
 //     ......
-
-#endif /* CONFIG_H */
