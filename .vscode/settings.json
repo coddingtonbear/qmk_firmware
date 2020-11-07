@@ -15,5 +15,6 @@
         "xstddef": "c"
     },
     "editor.wordWrap": "off",
-    "workbench.colorCustomizations": {}
+    "editor.formatOnSave": false,
+    "workbench.colorCustomizations": {},
 }
